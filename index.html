@@ -658,39 +658,39 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // Simple waitlist form handler
-        // In production, this would POST to your Supabase endpoint
+        const supabaseUrl = 'https://sixwgsqfutnvdxhrvkzd.supabase.co';
+        const supabaseKey = 'sb_publishable_0r33KI_abURhBHAd2wlcTw_tUiOMt_2';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('emailInput').value;
             const button = this.querySelector('button');
             const originalText = button.textContent;
-            
+
             button.textContent = 'Joining...';
             button.disabled = true;
-            
+
             try {
-                // TODO: Replace with your Supabase endpoint
-                // const response = await fetch('YOUR_SUPABASE_FUNCTION_URL', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify({ email })
-                // });
-                
-                // Simulate API call for now
-                await new Promise(resolve => setTimeout(resolve, 800));
-                
+                const { error } = await supabase
+                    .from('waitlist')
+                    .insert([{ email }]);
+
+                if (error) throw error;
+
                 document.getElementById('formSuccess').classList.add('show');
                 document.getElementById('emailInput').value = '';
                 button.textContent = 'Joined!';
-                
+
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.disabled = false;
                 }, 3000);
-                
+
             } catch (error) {
+                console.error('Error:', error);
                 button.textContent = 'Try Again';
                 button.disabled = false;
             }
