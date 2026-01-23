@@ -652,45 +652,56 @@
             <div class="footer-links">
                 <a href="/privacy">Privacy Policy</a>
                 <a href="/terms">Terms of Service</a>
-                <a href="mailto:jon@mancinitechsolutions.com">Contact</a>
+                <a href="mailto:stacktrackerpro@gmail.com">Contact</a>
             </div>
             <p class="footer-copy">© 2026 <a href="https://mancinitechsolutions.com">Mancini Tech Solutions</a>. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const supabaseUrl = 'https://sixwgsqfutnvdxhrvkzd.supabase.co';
-        const supabaseKey = 'sb_publishable_0r33KI_abURhBHAd2wlcTw_tUiOMt_2';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        const SUPABASE_URL = 'https://sixwgsqfutnvdxhrvkzd.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_0r33KI_abURhBHAd2wlcTw_tUiOMt_2';
 
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('emailInput').value;
             const button = this.querySelector('button');
             const originalText = button.textContent;
-
+            
             button.textContent = 'Joining...';
             button.disabled = true;
-
+            
             try {
-                const { error } = await supabase
-                    .from('waitlist')
-                    .insert([{ email }]);
-
-                if (error) throw error;
-
-                document.getElementById('formSuccess').classList.add('show');
-                document.getElementById('emailInput').value = '';
-                button.textContent = 'Joined!';
-
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                if (response.ok) {
+                    document.getElementById('formSuccess').classList.add('show');
+                    document.getElementById('emailInput').value = '';
+                    button.textContent = 'Joined!';
+                } else if (response.status === 409) {
+                    // Email already exists
+                    document.getElementById('formSuccess').textContent = "✓ You're already on the list!";
+                    document.getElementById('formSuccess').classList.add('show');
+                    button.textContent = 'Already Joined';
+                } else {
+                    throw new Error('Failed to submit');
+                }
+                
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.disabled = false;
                 }, 3000);
-
+                
             } catch (error) {
-                console.error('Error:', error);
                 button.textContent = 'Try Again';
                 button.disabled = false;
             }
