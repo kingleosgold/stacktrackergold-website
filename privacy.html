@@ -39,22 +39,51 @@
     <div class="container">
         <a href="/" class="back">← Back to Home</a>
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: January 23, 2026</p>
+        <p class="updated">Last updated: January 27, 2026</p>
 
         <h2>The Short Version</h2>
-        <p>Stack Tracker Gold is built with privacy as a core principle. Your precious metals holdings data stays on your device. We don't have access to it, we don't want access to it, and we couldn't see it even if we tried.</p>
+        <p>Stack Tracker Gold is built with privacy as a core principle. You control your data. Use the app without signing in and everything stays on your device. Create an account and your data syncs securely to the cloud—your choice.</p>
 
         <h2>Data Storage</h2>
-        <p>All portfolio data—your holdings, purchase dates, prices paid, and notes—is stored locally on your device. This data is encrypted using your device's built-in security (Face ID, Touch ID, or passcode).</p>
-        <p>We do not operate servers that store your portfolio data. There is no "account" to create and no cloud sync that sends your data anywhere.</p>
+        <p><strong>Local Storage:</strong> If you use the app without signing in, all your portfolio data—holdings, purchase dates, prices paid, and notes—is stored locally on your device. This data is encrypted using your device's built-in security (Face ID, Touch ID, or passcode). We never see it.</p>
+        <p><strong>Cloud Sync:</strong> If you create an account, your holdings sync securely to our cloud servers (hosted on Supabase) to enable access across devices. You can switch between local-only and cloud sync at any time.</p>
 
-        <h2>What We Do Collect</h2>
-        <p>To provide the app's functionality, we use the following services:</p>
+        <h2>What We Collect</h2>
+        <p><strong>For users who don't sign in:</strong> We collect nothing. Your data stays on your device.</p>
+        <p><strong>For signed-in users:</strong></p>
+        <ul>
+            <li><strong>Email address:</strong> Used for your account and to contact you if needed.</li>
+            <li><strong>Holdings data:</strong> Your metals, quantities, purchase prices, and dates—synced to enable cross-device access.</li>
+            <li><strong>Receipt images:</strong> We do NOT store receipt images. These are processed in memory and deleted immediately after extracting the data.</li>
+        </ul>
+        <p><strong>For all users:</strong></p>
         <ul>
             <li><strong>Spot Prices:</strong> We fetch live metal prices from third-party APIs. These requests do not include any information about your holdings.</li>
-            <li><strong>Receipt Scanning:</strong> If you use the receipt scanning feature, the image is processed by an AI service to extract text. The image is not stored after processing.</li>
             <li><strong>Crash Reports:</strong> Anonymous crash data may be collected to help us fix bugs. This contains no personal or portfolio information.</li>
             <li><strong>Subscription Management:</strong> If you subscribe, RevenueCat processes the payment. They receive standard purchase information from Apple/Google but have no access to your portfolio data.</li>
+        </ul>
+
+        <h2>What We Don't Do</h2>
+        <ul>
+            <li>Sell your data to third parties</li>
+            <li>Share your information with advertisers</li>
+            <li>Track your browsing or behavior outside the app</li>
+            <li>Access your data without your permission</li>
+        </ul>
+
+        <h2>Data Security</h2>
+        <ul>
+            <li>All data encrypted in transit (HTTPS/TLS)</li>
+            <li>All data encrypted at rest</li>
+            <li>Cloud data hosted on Supabase (SOC 2 compliant infrastructure)</li>
+            <li>Local data protected by your device's built-in security</li>
+        </ul>
+
+        <h2>Your Rights</h2>
+        <ul>
+            <li><strong>Export:</strong> Export your data anytime as a CSV file from within the app.</li>
+            <li><strong>Delete:</strong> Delete your account and all associated cloud data at any time.</li>
+            <li><strong>Control:</strong> Switch between local-only and cloud sync whenever you want.</li>
         </ul>
 
         <h2>Waitlist Emails</h2>
@@ -64,12 +93,10 @@
         <ul>
             <li>Apple App Store / Google Play (payment processing)</li>
             <li>RevenueCat (subscription management)</li>
+            <li>Supabase (cloud sync and authentication)</li>
             <li>MetalPriceAPI (spot prices)</li>
             <li>Google Gemini (receipt scanning AI)</li>
         </ul>
-
-        <h2>Data Export</h2>
-        <p>You can export your portfolio data as a CSV file at any time from within the app. This file stays on your device—we never see it.</p>
 
         <h2>Contact</h2>
         <p>Questions? Email us at <a href="mailto:stacktrackerpro@gmail.com">stacktrackerpro@gmail.com</a></p>
