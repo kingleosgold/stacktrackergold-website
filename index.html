@@ -357,17 +357,22 @@
             color: #000;
         }
 
-        .pricing-toggle .save-badge {
+        .pricing-save-badge {
             position: absolute;
-            top: -10px;
-            right: -8px;
+            top: 16px;
+            right: 16px;
             background: var(--green);
             color: #fff;
-            font-size: 0.6rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 4px 12px;
+            border-radius: 6px;
             white-space: nowrap;
+            display: none;
+        }
+
+        .pricing-save-badge.visible {
+            display: block;
         }
 
         .pricing-grid {
@@ -493,8 +498,15 @@
         }
 
         .trust-stat .stat-icon {
-            font-size: 1.5rem;
             margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .trust-stat .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold);
         }
 
         .trust-stat h3 {
@@ -552,12 +564,13 @@
             gap: 14px;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 16px 28px;
+            padding: 18px 28px;
             border-radius: 14px;
             text-decoration: none;
             color: var(--text-primary);
             transition: all 0.2s ease;
-            min-width: 220px;
+            width: 240px;
+            height: 68px;
         }
 
         .download-btn:hover {
@@ -566,25 +579,28 @@
         }
 
         .download-btn svg {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             flex-shrink: 0;
+            display: block;
         }
 
         .download-btn .dl-text {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            justify-content: center;
         }
 
         .download-btn .dl-text small {
             font-size: 0.7rem;
             color: var(--text-muted);
+            line-height: 1.2;
         }
 
         .download-btn .dl-text span {
             font-weight: 600;
             font-size: 1.05rem;
+            line-height: 1.3;
         }
 
         .download-sync {
@@ -728,9 +744,7 @@
             }
 
             .download-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
+                width: 240px;
             }
 
             .footer-inner {
@@ -772,7 +786,7 @@
                     <p class="hero-sub">The smartest portfolio tracker for precious metals investors. Live prices, AI intelligence, and real-time analytics.</p>
                     <div class="hero-buttons">
                         <a href="https://app.stacktrackergold.com/auth" class="btn btn-primary btn-large">Start Tracking Free</a>
-                        <a href="https://apps.apple.com/app/stack-tracker-gold/id6738030857" class="btn btn-secondary btn-large" target="_blank" rel="noopener">Download on iOS</a>
+                        <a href="https://apps.apple.com/us/app/stack-tracker-gold/id6757343766" class="btn btn-secondary btn-large" target="_blank" rel="noopener">Download on iOS</a>
                     </div>
                 </div>
                 <div class="hero-screenshots">
@@ -830,7 +844,7 @@
                 <div class="pricing-toggle">
                     <div class="pricing-toggle-inner">
                         <button class="active" data-plan="monthly">Monthly</button>
-                        <button data-plan="yearly">Yearly <span class="save-badge">Save 33%</span></button>
+                        <button data-plan="yearly">Yearly</button>
                         <button data-plan="lifetime">Lifetime</button>
                     </div>
                 </div>
@@ -848,6 +862,7 @@
                     </div>
                     <div class="pricing-card highlighted fade-in">
                         <div class="pricing-badge" id="goldBadge">7 days free</div>
+                        <div class="pricing-save-badge" id="goldSaveBadge">Save 33%</div>
                         <h3>Gold</h3>
                         <div class="price" id="goldPrice">$9.99<span>/mo</span></div>
                         <p class="price-alt" id="goldPriceAlt">Billed monthly</p>
@@ -873,17 +888,17 @@
                 <h2 class="section-title">Built for Serious Stackers</h2>
                 <div class="trust-stats">
                     <div class="trust-stat fade-in">
-                        <div class="stat-icon">🥇</div>
+                        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5"/><circle cx="16" cy="8" r="5"/><circle cx="8" cy="16" r="5"/><circle cx="16" cy="16" r="5"/></svg></div>
                         <h3>Gold, Silver, Platinum & Palladium</h3>
                         <p>Track all four major precious metals in one place.</p>
                     </div>
                     <div class="trust-stat fade-in">
-                        <div class="stat-icon">🌍</div>
+                        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                         <h3>Live Global Market Prices</h3>
                         <p>Spot prices sourced from global markets, updated every minute.</p>
                     </div>
                     <div class="trust-stat fade-in">
-                        <div class="stat-icon">🔒</div>
+                        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
                         <h3>Bank-Level Encryption</h3>
                         <p>Your data is encrypted in transit and at rest. Always.</p>
                     </div>
@@ -901,7 +916,7 @@
                     <p class="section-label">Get Started</p>
                     <h2 class="section-title">Available Everywhere</h2>
                     <div class="download-buttons">
-                        <a href="https://apps.apple.com/app/stack-tracker-gold/id6738030857" class="download-btn" target="_blank" rel="noopener">
+                        <a href="https://apps.apple.com/us/app/stack-tracker-gold/id6757343766" class="download-btn" target="_blank" rel="noopener">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                             <div class="dl-text">
                                 <small>Download on the</small>
@@ -965,10 +980,12 @@
 
         // Pricing toggle
         const plans = {
-            monthly:  { price: '$9.99<span>/mo</span>',           alt: 'Billed monthly',            badge: '7 days free',  cta: 'Start Free Trial' },
-            yearly:   { price: '$79.99<span>/yr</span>',          alt: 'Billed annually \u2014 7 days free', badge: '7 days free',  cta: 'Start Free Trial' },
-            lifetime: { price: '$199.99<span> one-time</span>',   alt: 'No recurring fees ever',     badge: 'Best value',   cta: 'Get Lifetime Access' }
+            monthly:  { price: '$9.99<span>/mo</span>',           alt: 'Billed monthly',                     badge: '7 days free',  cta: 'Start Free Trial',    showSave: false },
+            yearly:   { price: '$79.99<span>/yr</span>',          alt: 'Billed annually \u2014 7 days free',  badge: '7 days free',  cta: 'Start Free Trial',    showSave: true },
+            lifetime: { price: '$199.99<span> one-time</span>',   alt: 'No recurring fees ever',              badge: 'Best value',   cta: 'Get Lifetime Access', showSave: false }
         };
+
+        const saveBadge = document.getElementById('goldSaveBadge');
 
         document.querySelectorAll('.pricing-toggle button').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -979,6 +996,7 @@
                 document.getElementById('goldPriceAlt').textContent = plan.alt;
                 document.getElementById('goldBadge').textContent = plan.badge;
                 document.getElementById('goldCta').textContent = plan.cta;
+                saveBadge.classList.toggle('visible', plan.showSave);
             });
         });
     </script>
