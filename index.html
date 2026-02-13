@@ -289,8 +289,18 @@
         }
 
         .feature-icon {
-            font-size: 1.75rem;
+            width: 40px;
+            height: 40px;
             margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold);
         }
 
         .feature-card h3 {
@@ -308,6 +318,56 @@
         /* ─── Pricing ─── */
         .pricing {
             padding: 100px 0;
+        }
+
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .pricing-toggle-inner {
+            display: inline-flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        .pricing-toggle button {
+            padding: 10px 24px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .pricing-toggle button:hover {
+            color: var(--text-secondary);
+        }
+
+        .pricing-toggle button.active {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .pricing-toggle .save-badge {
+            position: absolute;
+            top: -10px;
+            right: -8px;
+            background: var(--green);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
         }
 
         .pricing-grid {
@@ -368,6 +428,7 @@
             color: var(--text-muted);
             font-size: 0.85rem;
             margin-bottom: 32px;
+            min-height: 1.3em;
         }
 
         .pricing-features {
@@ -408,20 +469,6 @@
 
         .pricing-card .btn {
             width: 100%;
-        }
-
-        .pricing-note {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 8px;
-        }
-
-        .lifetime-note {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-top: 16px;
         }
 
         /* ─── Trust ─── */
@@ -742,32 +789,32 @@
                 <h2 class="section-title">Everything You Need to Track Your Stack</h2>
                 <div class="features-grid">
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">📊</div>
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
                         <h3>Live Spot Prices</h3>
                         <p>Real-time gold, silver, platinum & palladium prices updated every minute.</p>
                     </div>
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">💰</div>
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 4v16"/><path d="M2 12h20"/><circle cx="7" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="16" r="1" fill="currentColor" stroke="none"/></svg></div>
                         <h3>Portfolio Tracking</h3>
                         <p>Track every coin, bar, and round. See your total value at a glance.</p>
                     </div>
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">📰</div>
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8"/><path d="M10 10h8"/></svg></div>
                         <h3>AI Intelligence Feed</h3>
                         <p>AI-curated market briefs delivered daily. Stay informed without the noise.</p>
                     </div>
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">🤖</div>
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
                         <h3>AI Stack Advisor</h3>
                         <p>Ask questions about your portfolio. Get personalized analysis powered by AI.</p>
                     </div>
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">🏦</div>
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M7 8V6a5 5 0 0 1 10 0v2"/><path d="M12 15v2"/><circle cx="12" cy="15" r="1"/></svg></div>
                         <h3>COMEX Vault Watch</h3>
                         <p>Monitor warehouse inventory levels and delivery demand in real time.</p>
                     </div>
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">📈</div>
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg></div>
                         <h3>Advanced Analytics</h3>
                         <p>Cost basis, gain/loss, allocation breakdown, historical charts.</p>
                     </div>
@@ -780,6 +827,13 @@
             <div class="container">
                 <p class="section-label">Pricing</p>
                 <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <div class="pricing-toggle">
+                    <div class="pricing-toggle-inner">
+                        <button class="active" data-plan="monthly">Monthly</button>
+                        <button data-plan="yearly">Yearly <span class="save-badge">Save 33%</span></button>
+                        <button data-plan="lifetime">Lifetime</button>
+                    </div>
+                </div>
                 <div class="pricing-grid">
                     <div class="pricing-card fade-in">
                         <h3>Free</h3>
@@ -793,10 +847,10 @@
                         <a href="https://app.stacktrackergold.com/auth" class="btn btn-secondary">Start Free</a>
                     </div>
                     <div class="pricing-card highlighted fade-in">
-                        <div class="pricing-badge">7 days free</div>
+                        <div class="pricing-badge" id="goldBadge">7 days free</div>
                         <h3>Gold</h3>
-                        <div class="price">$9.99<span>/mo</span></div>
-                        <p class="price-alt">or $79.99/yr (save 33%)</p>
+                        <div class="price" id="goldPrice">$9.99<span>/mo</span></div>
+                        <p class="price-alt" id="goldPriceAlt">Billed monthly</p>
                         <ul class="pricing-features">
                             <li>Everything in Free, plus:</li>
                             <li>AI Intelligence Feed</li>
@@ -806,8 +860,7 @@
                             <li>Advanced Analytics</li>
                             <li class="coming-soon">AI Daily Brief</li>
                         </ul>
-                        <a href="https://app.stacktrackergold.com/auth" class="btn btn-primary">Start Free Trial</a>
-                        <p class="lifetime-note">Also available as lifetime access for $199.99</p>
+                        <a href="https://app.stacktrackergold.com/auth" class="btn btn-primary" id="goldCta">Start Free Trial</a>
                     </div>
                 </div>
             </div>
@@ -907,6 +960,25 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+            });
+        });
+
+        // Pricing toggle
+        const plans = {
+            monthly:  { price: '$9.99<span>/mo</span>',           alt: 'Billed monthly',            badge: '7 days free',  cta: 'Start Free Trial' },
+            yearly:   { price: '$79.99<span>/yr</span>',          alt: 'Billed annually \u2014 7 days free', badge: '7 days free',  cta: 'Start Free Trial' },
+            lifetime: { price: '$199.99<span> one-time</span>',   alt: 'No recurring fees ever',     badge: 'Best value',   cta: 'Get Lifetime Access' }
+        };
+
+        document.querySelectorAll('.pricing-toggle button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.pricing-toggle button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const plan = plans[this.dataset.plan];
+                document.getElementById('goldPrice').innerHTML = plan.price;
+                document.getElementById('goldPriceAlt').textContent = plan.alt;
+                document.getElementById('goldBadge').textContent = plan.badge;
+                document.getElementById('goldCta').textContent = plan.cta;
             });
         });
     </script>
